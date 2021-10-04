@@ -1,0 +1,9 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "chat application",
+  "main": "index.js",
+  "author": "Alvi Mahadi",
+  "license": "MIT",
+  "private": false
+}
