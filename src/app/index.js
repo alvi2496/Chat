@@ -30,11 +30,13 @@ export default function App() {
   const messages = [
     {
       id: 1,
-      body: "message 1"
+      body: "message 1",
+      direction: "incoming"
     },
     {
       id: 2,
-      body: "message 2"
+      body: "message 2",
+      direction: "outgoing"
     }
   ]
 

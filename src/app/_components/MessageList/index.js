@@ -10,7 +10,8 @@ export default function MessageList({
         messages.map((message) => (
           <MessageItem
             key={`message-${message.id}`}
-            message={message}
+            message={message.body}
+            direction={message.direction}
           />
         ))
       }
