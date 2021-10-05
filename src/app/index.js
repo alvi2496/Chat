@@ -4,11 +4,13 @@ import 'antd/dist/antd.css';
 
 import Title from './_components/Title';
 import ConversationList from './_components/ConversationList';
+import ChatContainer from './_components/ChatContainer';
 
 export default function App() {
 
   const conversations = [
     {
+      id: 1,
       name: "Customer One",
       latestMessage: {
         body: "Latest message from customer one",
@@ -16,6 +18,7 @@ export default function App() {
       }
     },
     {
+      id: 2,
       name: "Customer two",
       latestMessage: {
         body: "Latest message from customer two",
@@ -23,6 +26,19 @@ export default function App() {
       }
     }
   ]
+
+  const messages = [
+    {
+      id: 1,
+      body: "message 1"
+    },
+    {
+      id: 2,
+      body: "message 2"
+    }
+  ]
+
+  const activeConversation = conversations[0];
 
   return (
     <div>
@@ -39,7 +55,11 @@ export default function App() {
           span={16}
           offset={4}
         >
-          <ConversationList conversations={conversations}/>
+          <ChatContainer
+            conversations={conversations}
+            activeConversation={conversations[0]}
+            messages={messages}
+          />
         </Col>
       </Row>
     </div>
