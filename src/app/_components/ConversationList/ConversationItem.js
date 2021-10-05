@@ -15,6 +15,18 @@ export default function ConversationItem(
 
   const { Text } = Typography;
 
+  const styles = {
+    activeBackground: {
+      backgroundColor: "rgb(245 245 245)"
+    },
+    trunkOverflowText: {
+      flex: 1,
+      whiteSpace: "nowrap",
+      textOverflow: "ellipsis",
+      overflow: "hidden"
+    }
+  }
+
   const initials = (name) => {
     if (name) {
       return name.split(' ').map((str) => str ? str[0].toUpperCase() : "").join('');
@@ -26,7 +38,7 @@ export default function ConversationItem(
 
   return (
     <List.Item
-      style={active ? { backgroundColor: "rgb(245 245 245)"} : null }
+      style={active ? styles.activeBackground : null }
     >
       <List.Item.Meta
         avatar={
@@ -34,8 +46,8 @@ export default function ConversationItem(
             :
             <Avatar>{ initials(conversation.name) }</Avatar>
           }
-        title={conversation.name}
-        description={conversation.latestMessage.body}
+        title={<p style={styles.trunkOverflowText}>{conversation.name}</p>}
+        description={<p style={styles.trunkOverflowText}>{conversation.latestMessage.body}</p>}
       />
       <div>
         {

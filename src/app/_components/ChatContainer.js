@@ -11,12 +11,20 @@ export default function ChatContainer(
   }
 ) {
 
+  const styles = {
+    cardBody: {
+      height: "300px",
+      width: "100%",
+      overflow: "auto"
+    }
+  }
+
   return (
     <Row>
       <Col span={8}>
         <Card
           title="Conversations"
-          style={{ height: "300px", width: "100%" }}
+          style={styles.cardBody}
         >
           <ConversationList
             conversations={conversations}
@@ -27,7 +35,7 @@ export default function ChatContainer(
       <Col span={16}>
         <Card
           title="Messages"
-          style={{ height: "300px", width: "100%" }}
+          style={styles.cardBody}
         >
           <MessageList messages={messages} />
         </Card>
