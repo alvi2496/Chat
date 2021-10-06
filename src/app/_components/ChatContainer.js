@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Card } from "antd";
 import ConversationList from "./ConversationList";
 import MessageList from "./MessageList";
+import MessageInput from "./MessageInput";
 
 export default function ChatContainer(
   {
@@ -13,9 +14,14 @@ export default function ChatContainer(
 
   const styles = {
     cardBody: {
-      height: "300px",
+      height: "600px",
       width: "100%",
       overflow: "auto"
+    },
+    messageInput: {
+      position: "absolute",
+      bottom: 0,
+      width: "95%"
     }
   }
 
@@ -37,7 +43,10 @@ export default function ChatContainer(
           title="Messages"
           style={styles.cardBody}
         >
-          <MessageList messages={messages} />
+          <MessageList
+            messages={messages}
+          />
+          <MessageInput style={ styles.messageInput}/>
         </Card>
       </Col>
     </Row>
