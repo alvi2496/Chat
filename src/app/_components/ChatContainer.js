@@ -1,53 +1,50 @@
 import React from "react";
-import { Row, Col, Card } from "antd";
-import ConversationList from "./ConversationList";
-import MessageList from "./MessageList";
-import MessageInput from "./MessageInput";
+import { Card, Row, Col } from "antd";
+import Conversations from "./Conversations";
 
-export default function ChatContainer(
-  {
-    conversations,
-    activeConversation,
-    messages
-  }
-) {
+
+export default function ChatContainer() {
+
+  const messages = [
+    {
+      id: 1,
+      body: "message 1",
+      direction: "incoming"
+    },
+    {
+      id: 2,
+      body: "message 2",
+      direction: "outgoing"
+    }
+  ]
 
   const styles = {
-    cardBody: {
-      height: "600px",
-      width: "100%",
-      overflow: "auto"
+    conversationCard: {
+      height: "500px"
     },
-    messageInput: {
-      position: "absolute",
-      bottom: 0,
-      width: "95%"
+    messageCard: {
+      height: "500px"
     }
   }
+
 
   return (
     <Row>
       <Col span={8}>
         <Card
           title="Conversations"
-          style={styles.cardBody}
+          style={styles.conversationCard}
         >
-          <ConversationList
-            conversations={conversations}
-            activeConversation={activeConversation}
+          <Conversations
+            userId={1}
           />
         </Card>
       </Col>
       <Col span={16}>
         <Card
-          title="Messages"
-          style={styles.cardBody}
-        >
-          <MessageList
-            messages={messages}
-          />
-          <MessageInput style={ styles.messageInput}/>
-        </Card>
+          title={"Customer"}
+          style={styles.messageCard}
+        ></Card>
       </Col>
     </Row>
   )
